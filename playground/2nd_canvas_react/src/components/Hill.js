@@ -1,6 +1,10 @@
-// function Hill({ color, speed, total }) {
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { useCanvas } from "./Canvas";
+
 function Hill(props) {
-  console.log(props)
+  const renderingContext = useCanvas();
+  console.log('props');
+  console.log(props, renderingContext);
   /*let points = [];
   let gap;
 
@@ -92,7 +96,7 @@ function Hill(props) {
     return dots;
   };*/
 
-  return null
+  return null;
 }
 
 export const resize = Hill.resize;

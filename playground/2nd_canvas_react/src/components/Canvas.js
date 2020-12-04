@@ -33,9 +33,14 @@ function Canvas(props) {
   return (
     <SharingContext.Provider value={renderingContext}>
       <canvas ref={canvasRef} />
-      {props.children}
+      {renderingContext && props.children}
     </SharingContext.Provider>
   );
 }
+
+export const useCanvas = () => {
+  const renderingContext = React.useContext(SharingContext);
+  return renderingContext;
+};
 
 export default Canvas;
