@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { useCanvas } from "./Canvas";
+import { withContext } from "context-q/dist/ContextQ";
 
 function Hill(props) {
-  const renderingContext = useCanvas();
-  console.log('props');
-  console.log(props, renderingContext);
+  console.log(props);
   /*let points = [];
   let gap;
 
@@ -95,9 +93,9 @@ function Hill(props) {
 
     return dots;
   };*/
-
   return null;
 }
+Hill = withContext(Hill);
 
 export const resize = Hill.resize;
 export default Hill;

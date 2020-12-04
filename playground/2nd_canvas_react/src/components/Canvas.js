@@ -1,17 +1,15 @@
 import React, { useState, useRef, useEffect, createContext } from "react";
-
-const SharingContext = createContext(null);
+import { withContext } from "context-q/dist/ContextQ";
 
 function Canvas(props) {
   const canvasRef = useRef();
-  const [renderingContext, setRenderingContext] = useState(null);
 
   useEffect(() => {
     /* init canvas context, screen size */
     const canvas = canvasRef.current;
     const ctx = canvasRef.current.getContext("2d");
 
-    setRenderingContext({
+    props.context.update({
       canvas: canvas,
       ctx: ctx,
     });
@@ -23,6 +21,11 @@ function Canvas(props) {
   }, []);
 
   const resize = (canvas) => {
+    console.info("i. resizing Canvas");
+    props.context.update({
+      stageWidth: document.body.clientWidth,
+      stageHeight: document.body.clientHeight,
+    });
     if (!!canvas) {
       canvas.width = document.body.clientWidth * 2;
       canvas.height = document.body.clientHeight * 2;
@@ -31,16 +34,13 @@ function Canvas(props) {
   };
 
   return (
-    <SharingContext.Provider value={renderingContext}>
+    <>
       <canvas ref={canvasRef} />
-      {renderingContext && props.children}
-    </SharingContext.Provider>
+      {canvasRef.current && props.children}
+    </>
   );
 }
 
-export const useCanvas = () => {
-  const renderingContext = React.useContext(SharingContext);
-  return renderingContext;
-};
+Canvas = withContext(Canvas);
 
 export default Canvas;
