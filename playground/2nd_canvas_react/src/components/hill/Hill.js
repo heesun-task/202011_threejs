@@ -3,7 +3,6 @@ import { withContext } from "context-q/dist/ContextQ";
 import { HillController } from "./controller";
 
 function Hill(props) {
-  console.log('Hill',props)
   const controllerRef = useRef();
   const { ctx,canvas, stageWidth, stageHeight,frame } = props.context;
 

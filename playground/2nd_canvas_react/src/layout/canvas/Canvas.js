@@ -10,7 +10,6 @@ function Canvas(props) {
   if (controllerRef.current) {
     const { stageWidth, stageHeight } = props.context;
     const { clear } = controllerRef.current;
-    console.log("dd");
     clear.bind(controllerRef.current)(stageWidth, stageHeight);
   }
 

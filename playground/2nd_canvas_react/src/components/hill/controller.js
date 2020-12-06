@@ -1,6 +1,5 @@
 export class HillController {
   constructor(color, speed, total) {
-    console.log('HillController',color, speed, total)
     this.color = color;
     this.speed = speed;
     this.total = total;
@@ -22,7 +21,6 @@ export class HillController {
   }
 
   draw(ctx) {
-    console.log('ctx',ctx)
     // this.ctx = ctx
     ctx.fillStyle = this.color;
     ctx.beginPath();
