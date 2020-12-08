@@ -50,7 +50,7 @@ const CanvasBase = styled.canvas`
   left: 0;right: 0;top: 0;bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: #f1f1f1;
+  background-color: #0B9ED9;
 `;
 
 Canvas = withContext(Canvas);
