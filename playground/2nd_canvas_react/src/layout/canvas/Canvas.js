@@ -31,7 +31,7 @@ function Canvas(props) {
 
   // resize canvas when global context changes
   useEffect(() => {
-    const { resize } = controllerRef.current;
+    const { resize, clear } = controllerRef.current;
     const { stageWidth, stageHeight } = props.context;
 
     resize.bind(controllerRef.current)(stageWidth, stageHeight);
@@ -50,7 +50,7 @@ const CanvasBase = styled.canvas`
   left: 0;right: 0;top: 0;bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: #0B9ED9;
+  background: linear-gradient(0deg, rgba(106,123,255,1) 0%, rgba(224,212,255,1) 100%);
 `;
 
 Canvas = withContext(Canvas);

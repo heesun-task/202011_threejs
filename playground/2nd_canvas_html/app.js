@@ -4,7 +4,6 @@ import { Sun } from "./Sun.js";
 
 class App {
   constructor() {
-    console.log("s", SheepController);
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
     document.body.appendChild(this.canvas);

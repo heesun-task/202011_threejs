@@ -37,20 +37,22 @@ let Layout = (props) => {
 
   return (
     <Wrapper id={"wrapper"}>
-      <p>{props.context.stageWidth}</p>
-      <p>{props.context.stageHeight}</p>
-      <p>{props.context.frame}</p>
+      <div style={{padding:20}}>
+        <p>- stageWidth : {props.context.stageWidth}</p>
+        <p>- stageHeight : {props.context.stageHeight}</p>
+        <p>- Frame : {props.context.frame}</p>
+      </div>
       {props.children}
     </Wrapper>
   );
 };
 
 function getWindowWidth() {
-  return window.screen.width;
+  return window.innerWidth;
 }
 
 function getWindowHeight() {
-  return window.screen.height;
+  return window.innerHeight;
 }
 
 const Wrapper = styled.div`
